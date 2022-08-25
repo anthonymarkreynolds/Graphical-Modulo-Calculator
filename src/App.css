@@ -1,5 +1,5 @@
 svg {
-  max-height: 300px;
+  max-height: 500px;
   /* animation: App-logo-spin infinite 20s linear; */
 }
 .App {
@@ -30,6 +30,17 @@ svg {
 
 .App-link {
   color: #61dafb;
+}
+
+.small {
+  font: monospace;
+  fill: white;
+}
+.ch1 {
+  transform: translateX(-0.5ch) translateY(0.5ex);
+}
+.ch2 {
+  transform: translateX(-1ch) translateY(0.5ex);
 }
 
 @keyframes App-logo-spin {

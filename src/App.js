@@ -3,17 +3,30 @@ import { useState } from "react";
 
 const Polygon = ({ sides }) => {
   const angle = 6.28 / sides;
-  const points = Array.from(
-    { length: sides },
-    (_, i) =>
-      `${50 - Math.sin(angle * i) * 50},${50 + Math.cos(angle * i) * 50}`
-  ).join(" ");
+  const coords = Array.from({ length: sides }, (_, i) => [
+    Math.sin(angle * i),
+    Math.cos(angle * i),
+  ]);
+  const points = coords
+    .map(([x, y]) => `${50 - x * 35},${50 + y * 35}`)
+    .join(" ");
   return (
     <>
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <polygon points={points} />
+        {coords.map(([x, y], i) => (
+          <text
+            x={50 - x * 40}
+            y={50 + y * 40}
+            class={`small ${i > 9 ? "ch2" : "ch1"}`}
+            fontSize={`${0.4 / sides + 0.1}em`} // this was tiresome to fine tune lol
+          >
+            {i}
+          </text>
+        ))}
       </svg>
       <p>External angle(radians) ≈ {angle}</p>
+
       <p>Sides: {sides}</p>
     </>
   );
