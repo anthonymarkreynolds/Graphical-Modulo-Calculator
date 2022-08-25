@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from "react";
 
 const Polygon = ({ sides }) => {
-  const angle = (360 / sides) * (Math.PI / 180);
+  const angle = 6.28 / sides;
   const points = Array.from(
     { length: sides },
     (_, i) =>
