@@ -16,9 +16,10 @@ const Polygon = ({ sides }) => {
         <polygon points={points} />
         {coords.map(([x, y], i) => (
           <text
+            key={i}
             x={50 - x * 40}
             y={50 + y * 40}
-            class={`small ${i > 9 ? "ch2" : "ch1"}`}
+            className={`small ${i > 9 ? "ch2" : "ch1"}`}
             fontSize={`${0.4 / sides + 0.1}em`} // this was tiresome to fine tune lol
           >
             {i}
