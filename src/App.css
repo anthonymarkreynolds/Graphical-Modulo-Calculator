@@ -2,39 +2,10 @@ svg {
   max-height: 500px;
   /* animation: App-logo-spin infinite 20s linear; */
 }
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 .small {
   font: monospace;
-  fill: white;
+  /* fill: white; */
 }
 .ch1 {
   transform: translateX(-0.5ch) translateY(0.5ex);
@@ -47,15 +18,6 @@ svg {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: dash 2s linear forwards infinite;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes dash {
