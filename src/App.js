@@ -13,7 +13,7 @@ const Polygon = ({ sides }) => {
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <polygon points={points} />
       </svg>
-      <p>External angle(radians): {angle}</p>
+      <p>External angle(radians) ≈ {angle}</p>
       <p>Sides: {sides}</p>
     </>
   );
