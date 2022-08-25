@@ -4,16 +4,22 @@ import { useState } from "react";
 const Polygon = ({ sides }) => {
   const angle = 6.28 / sides;
   const coords = Array.from({ length: sides }, (_, i) => [
-    Math.sin(angle * i),
-    Math.cos(angle * i),
+    Math.sin(angle * i + 3.14),
+    Math.cos(angle * i + 3.14),
   ]);
-  const points = coords
+  const points = [...coords, coords[0]]
     .map(([x, y]) => `${50 - x * 35},${50 + y * 35}`)
     .join(" ");
   return (
     <>
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <polygon points={points} />
+        <polyline
+          className="path"
+          stroke="blanchedalmond"
+          fill="black"
+          points={points}
+          pathLength="1"
+        />
         {coords.map(([x, y], i) => (
           <text
             key={i}
