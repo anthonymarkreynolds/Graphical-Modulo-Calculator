@@ -1,8 +1,9 @@
 import Polygon from "../Polygon";
 import { Box, Slider } from "@mui/material";
+import { useState } from "react";
 
 const ModularArithmetic = () => {
-  const [sides, updateSides] = [3, (a) => a];
+  const [sides, updateSides] = useState(3);
   return (
     <>
       <Polygon sides={sides} />

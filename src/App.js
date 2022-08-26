@@ -34,47 +34,40 @@ function App() {
     ["Magic9", <Magic9 />],
   ];
   return (
-    <>
+    <Container>
       <Appbar />
-      <Container>
-        {steps[currentStep][1]}
-        <Divider />
-        <Button
-          sx={{ p: 1 }}
-          onClick={() =>
-            updateStep((currentStep - 1 + steps.length) % steps.length)
-          }
-        >
-          <ArrowBackIosNewIcon /> Back
-        </Button>
-        <Button
-          sx={{ p: 1, float: "right" }}
-          onClick={() => updateStep((currentStep + 1) % steps.length)}
-        >
-          Next <ArrowForwardIosIcon />
-        </Button>
-        <Box
-          sx={{
-            boxShadow: 1,
-            bgcolor: theme.palette.grey[50],
-            boxSizing: "border-box",
-            width: "inherit",
-            p: [0, 5, 0, 5],
-            borderRadius: 1,
-          }}
-        >
-          <Stepper nonLinear alternativeLabel activeStep={currentStep}>
-            {steps.map(([label], i) => {
-              return (
-                <Step key={label}>
-                  <StepButton onClick={() => updateStep(i)}>{label}</StepButton>
-                </Step>
-              );
-            })}
-          </Stepper>
-        </Box>
-      </Container>
-    </>
+      {steps[currentStep][1]}
+      <Button
+        onClick={() =>
+          updateStep((prevStep) => (prevStep - 1 + steps.length) % steps.length)
+        }
+      >
+        Back
+      </Button>
+      <Button
+        onClick={() => updateStep((prevStep) => (prevStep + 1) % steps.length)}
+      >
+        Next
+      </Button>
+      <Box
+        sx={{
+          p: 5,
+          borderRadius: 2,
+          boxShadow: theme.shadows[1],
+          bgcolor: theme.palette.grey[100],
+        }}
+      >
+        <Stepper nonLinear alternativeLabel activeStep={currentStep}>
+          {steps.map(([label], i) => {
+            return (
+              <Step key={label}>
+                <StepButton onClick={() => updateStep(i)}>{label}</StepButton>
+              </Step>
+            );
+          })}
+        </Stepper>
+      </Box>
+    </Container>
   );
 }
 

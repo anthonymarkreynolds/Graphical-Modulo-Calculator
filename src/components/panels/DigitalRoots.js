@@ -1,5 +1,5 @@
 const DigitalRoots = () => {
-  return "DigitalRoots";
+  return <p>DigitalRoots</p>;
 };
 
 export default DigitalRoots;
