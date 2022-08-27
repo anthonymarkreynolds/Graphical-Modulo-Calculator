@@ -7,7 +7,18 @@ import ModularArithmetic from "./panels/ModularArithmetic";
 import PlaceValueNotation from "./panels/PlaceValueNotation";
 import Magic9 from "./panels/Magic9";
 
+import {
+  Box,
+  Container,
+  Typography,
+  IconButton,
+  ButtonGroup,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { GitHub } from "@mui/icons-material";
+
 const Layout = ({ children }) => {
+  const theme = useTheme();
   const panels = [
     ["Introduction", <Introduction />],
     ["Digital Roots", <DigitalRoots />],
@@ -20,6 +31,24 @@ const Layout = ({ children }) => {
       <NavBar />
       {children}
       <PanelStepper panels={panels} />
+      <Box sx={{ mt: 5, bgcolor: theme.palette.grey[100], height: "400px" }}>
+        <Container sx={{ p: 3 }}>
+          <ButtonGroup>
+            <IconButton>
+              <GitHub />
+            </IconButton>
+            <IconButton>
+              <GitHub />
+            </IconButton>
+            <IconButton>
+              <GitHub />
+            </IconButton>
+          </ButtonGroup>
+          <Typography variant="subtitle2" mt={2}>
+            © Copyright 2022 Anthony Mark Reynolds
+          </Typography>
+        </Container>
+      </Box>
     </div>
   );
 };

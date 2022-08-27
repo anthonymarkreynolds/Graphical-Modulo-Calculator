@@ -1,5 +1,7 @@
+import { Typography } from "@mui/material";
+import PanelHeader from "./PanelHeader";
 const DigitalRoots = () => {
-  return <p>DigitalRoots</p>;
+  return <PanelHeader title="Digital Roots" />;
 };
 
 export default DigitalRoots;

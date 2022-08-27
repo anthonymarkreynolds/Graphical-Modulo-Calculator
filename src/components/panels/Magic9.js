@@ -1,5 +1,7 @@
+import PanelHeader from "./PanelHeader";
+
 const Magic9 = () => {
-  return <p>Magic9</p>;
+  return <PanelHeader title="Magic 9" />;
 };
 
 export default Magic9;

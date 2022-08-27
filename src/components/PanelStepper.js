@@ -9,7 +9,6 @@ import {
   Stepper,
   Step,
   StepButton,
-  Typography,
   Divider,
 } from "@mui/material";
 

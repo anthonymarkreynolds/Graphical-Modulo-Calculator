@@ -1,5 +1,6 @@
+import PanelHeader from "./PanelHeader";
 const PlaceValueNotation = () => {
-  return <p>PlaceValueNotation</p>;
+  return <PanelHeader title="Place Value Notation" />;
 };
 
 export default PlaceValueNotation;

@@ -1,7 +1,6 @@
 import * as React from "react";
 import {
   AppBar,
-  Box,
   Toolbar,
   Typography,
   IconButton,
@@ -14,7 +13,7 @@ const NavBar = () => {
       <Container>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Digital Roots
+            Finding Digital Roots
           </Typography>
           <IconButton color="inherit">
             <GitHubIcon />

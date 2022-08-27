@@ -1,18 +1,17 @@
-import { Typography, Box, Divider, Paper } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import PanelHeader from "./PanelHeader";
 
 const Indroduction = () => {
   return (
     <Box sx={{}}>
-      <Typography variant="h1" mt={2}>
-        Introduction
-      </Typography>
-      <Typography variant="subtitle1">
-        Finding Digital Roots - A Visual Exploration
-      </Typography>
-      <Divider />
+      <PanelHeader
+        title="Introduction"
+        subtitle1="Finding Digital Roots - A Visual Exploration"
+        subtitle2="Created by: Anthony Mark Reynolds"
+      />
       <Typography m={2}>
-        This is a simple interactive site that walks through how digital roots
-        can be calculated
+        Welcome, this is a simple interactive site that walks through how
+        digital roots can be calculated
       </Typography>
     </Box>
   );

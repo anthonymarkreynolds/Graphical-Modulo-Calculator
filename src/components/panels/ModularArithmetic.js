@@ -1,11 +1,14 @@
 import Polygon from "../Polygon";
-import { Box, Slider } from "@mui/material";
+import { Box, Slider, Typography, Divider } from "@mui/material";
 import { useState } from "react";
+import PanelHeader from "./PanelHeader";
 
 const ModularArithmetic = () => {
   const [sides, updateSides] = useState(3);
   return (
     <>
+      <PanelHeader title="Modular Arithmetic" />
+      <Divider />
       <Polygon sides={sides} />
       <Box sx={{ width: 300 }}>
         <Slider
