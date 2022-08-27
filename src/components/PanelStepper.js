@@ -9,6 +9,8 @@ import {
   Stepper,
   Step,
   StepButton,
+  Typography,
+  Divider,
 } from "@mui/material";
 
 import { ArrowForwardIos, ArrowBackIosNew } from "@mui/icons-material";
@@ -19,8 +21,9 @@ const PanelStepper = ({ panels }) => {
 
   return (
     <Container>
-      {panels[currentPanel][1]}
-      <ButtonGroup variant="text">
+      <Box my={3}>{panels[currentPanel][1]}</Box>
+      <Divider />
+      <ButtonGroup variant="text" sx={{ m: 3 }}>
         <Button
           disabled={!currentPanel}
           onClick={() =>
@@ -30,6 +33,12 @@ const PanelStepper = ({ panels }) => {
           }
         >
           <ArrowBackIosNew /> Back
+        </Button>
+        <Button
+          disabled
+          sx={{ color: `${theme.palette.grey[700]} !important` }}
+        >
+          {panels[currentPanel][0]}
         </Button>
         <Button
           disabled={currentPanel === panels.length - 1}
@@ -43,6 +52,7 @@ const PanelStepper = ({ panels }) => {
       <Box
         sx={{
           p: 5,
+          pb: 3,
           borderRadius: 2,
           boxShadow: theme.shadows[1],
           bgcolor: theme.palette.grey[100],

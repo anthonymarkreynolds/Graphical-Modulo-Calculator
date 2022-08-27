@@ -4,24 +4,24 @@ import {
   Box,
   Toolbar,
   Typography,
-  Button,
+  IconButton,
   Container,
 } from "@mui/material";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
 const NavBar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Container>
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Digital Roots
-            </Typography>
-            <Button color="inherit">Source Code</Button>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </Box>
+    <AppBar position="sticky">
+      <Container>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Digital Roots
+          </Typography>
+          <IconButton color="inherit">
+            <GitHubIcon />
+          </IconButton>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 
