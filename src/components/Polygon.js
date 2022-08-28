@@ -37,6 +37,9 @@ const Polygon = () => {
     startOnMount: false,
   });
 
+  const handleValidate = (numStr) =>
+    isNaN(Number(numStr)) ? 0 : Number(numStr);
+
   return (
     <>
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +144,7 @@ const Polygon = () => {
           defaultValue={sides}
           sx={{ m: 2 }}
           onChange={(e) => {
-            updateSides(e.target.value);
+            updateSides(handleValidate(e.target.value));
             toggleAnimate(false);
           }}
         />
@@ -159,7 +162,7 @@ const Polygon = () => {
           min={1}
           max={10}
           onChange={(e) => {
-            updateSpeed(() => e.target.value);
+            updateSpeed(() => handleValidate(e.target.value));
             toggleAnimate(false);
           }}
         />
