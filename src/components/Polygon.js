@@ -27,7 +27,7 @@ const Polygon = () => {
     .join(" ");
 
   const countUpRef = useRef(null);
-  const { start } = useCountUp({
+  const { start, reset } = useCountUp({
     ref: countUpRef,
     start: 0,
     end: counter,
@@ -84,15 +84,20 @@ const Polygon = () => {
             {i}
           </text>
         ))}
-        <text id="svg-counter" ref={countUpRef} fill="grey" y="56%" x="45%">
-          {animate && start()}
-        </text>
+        <text
+          id="svg-counter"
+          ref={countUpRef}
+          fill="grey"
+          y="56%"
+          x="45%"
+        ></text>
       </svg>
       <Box m={3}>
         <ButtonGroup>
           <Button
             onClick={() => {
               toggleAnimate(true);
+              start();
             }}
           >
             Calculate
@@ -100,6 +105,7 @@ const Polygon = () => {
           <Button
             onClick={() => {
               toggleAnimate(false);
+              reset();
             }}
           >
             reset
@@ -140,7 +146,7 @@ const Polygon = () => {
           }}
         />
       </Box>
-      <Box m={3}>
+      <Box m={3} sx={{ maxWidth: "600px" }}>
         <Typography variant="overline" gutterBottom>
           Animation Duration: {speed} seconds
         </Typography>
