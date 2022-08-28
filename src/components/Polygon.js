@@ -18,7 +18,7 @@ const Polygon = () => {
   const [speed, updateSpeed] = useState(5);
 
   const angle = (Math.PI * 2) / sides;
-  const coords = Array.from({ length: sides }, (_, i) => [
+  const coords = Array.from({ length: sides || 1 }, (_, i) => [
     Math.sin(angle * i + 3.14),
     Math.cos(angle * i + 3.14),
   ]);
@@ -38,7 +38,7 @@ const Polygon = () => {
   });
 
   const handleValidate = (numStr) =>
-    isNaN(Number(numStr)) ? 0 : Number(numStr);
+    isNaN(Number(numStr)) || Number(numStr) < 1 ? 1 : Number(numStr);
 
   return (
     <>
