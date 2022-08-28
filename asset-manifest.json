@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/React-SVG-Polygons/static/css/main.9e368d96.css",
-    "main.js": "/React-SVG-Polygons/static/js/main.a7bb105f.js",
+    "main.js": "/React-SVG-Polygons/static/js/main.e2409f54.js",
     "static/js/787.84da9cb9.chunk.js": "/React-SVG-Polygons/static/js/787.84da9cb9.chunk.js",
     "index.html": "/React-SVG-Polygons/index.html",
     "main.9e368d96.css.map": "/React-SVG-Polygons/static/css/main.9e368d96.css.map",
-    "main.a7bb105f.js.map": "/React-SVG-Polygons/static/js/main.a7bb105f.js.map",
+    "main.e2409f54.js.map": "/React-SVG-Polygons/static/js/main.e2409f54.js.map",
     "787.84da9cb9.chunk.js.map": "/React-SVG-Polygons/static/js/787.84da9cb9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9e368d96.css",
-    "static/js/main.a7bb105f.js"
+    "static/js/main.e2409f54.js"
   ]
 }
