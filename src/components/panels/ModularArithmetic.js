@@ -8,7 +8,14 @@ const ModularArithmetic = () => {
   return (
     <>
       <PanelHeader title="Modular Arithmetic" />
-      <Container>
+      <Container sx={{ p: 3 }}>
+        <Typography variant="h2" sx={{ mt: 5, fontSize: 36 }}>
+          What is a Modular Arithmetic?
+        </Typography>
+        <Typography sx={{ my: 3 }}>
+          A digital root is the result of repeatedly summing all the digits in a
+          whole number until only one digit remains.
+        </Typography>
         <Polygon sides={sides} />
         <Box sx={{ width: 300 }}>
           <Slider
@@ -18,7 +25,7 @@ const ModularArithmetic = () => {
             valueLabelDisplay="auto"
             step={1}
             marks
-            min={3}
+            min={1}
             max={16}
             onChange={(e) => updateSides(e.target.value)}
           />

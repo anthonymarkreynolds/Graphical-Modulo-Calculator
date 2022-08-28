@@ -2,6 +2,20 @@ import { Typography, Container, TextField } from "@mui/material";
 import PanelHeader from "./PanelHeader";
 import { useState } from "react";
 const DigitalRoots = () => {
+  const [number, updateNumber] = useState("0");
+  const example = (n) => {
+    if (!n) return "Enter a Whole Number";
+    const split = n.split("").join(" + ");
+    const sum = n.split("").reduce((a, c) => a + Number(c), 0);
+
+    return (
+      <>
+        {n} ⇒ {split} = {sum}
+        <br />
+        {sum > 9 && example(String(sum))}
+      </>
+    );
+  };
   return (
     <>
       <PanelHeader title="Digital Roots" />
@@ -37,32 +51,41 @@ const DigitalRoots = () => {
           explore this later.
         </Typography>
         <Typography sx={{ my: 3 }}>
-          Now we'll try 3 numbers: 123, 1239, and 12318
+          Now we'll try 4 more numbers: 123, 1239, 12399 and 123918
         </Typography>
         <Typography variant="h6" sx={{ m: 3 }}>
-          123 ⇒ 1 + 2 + 3 = 33 <br />
-          33 ⇒ 3 + 3 = 6
+          123 ⇒ 1 + 2 + 3 = 6
         </Typography>
         <Typography variant="h6" sx={{ m: 3 }}>
-          1239 ⇒ 1 + 2 + 3 + 9 = 33 <br />
-          33 ⇒ 3 + 3 = 6
+          1239 ⇒ 1 + 2 + 3 + 9 = 15 <br />
+          15 ⇒ 1 + 5 = 6
         </Typography>
         <Typography variant="h6" sx={{ m: 3 }}>
-          12399 ⇒ 1 + 2 + 3 + 9 + 9 = 33 <br />
-          33 ⇒ 3 + 3 = 6
+          12399 ⇒ 1 + 2 + 3 + 9 + 9 = 24 <br />
+          24 ⇒ 2 + 4 = 6
         </Typography>
         <Typography variant="h6" sx={{ m: 3 }}>
-          123918 ⇒ 1 + 2 + 3 + 9 + 1 + 8 = 33 <br />
-          33 ⇒ 3 + 3 = 6
+          123918 ⇒ 1 + 2 + 3 + 9 + 1 + 8 = 24 <br />
+          24 ⇒ 2 + 4 = 6
         </Typography>
         <Typography sx={{ my: 3 }}>
-          Stangely, it appears that adding any multiple of 9 to a number leaves
-          the digital root unchanged
+          Stangely, it appears that adding any multiple of 9 (eg, 9, 90, 900, 18
+          ..) to a number leaves the digital root unchanged.
         </Typography>
-        <Typography variant="h5" sx={{ mt: 5 }}>
+        <Typography variant="h5" sx={{ my: 5 }}>
           Try it out yourself
         </Typography>
-        <TextField id="input-number" label="Enter a Whole Number" />
+        <TextField
+          onChange={(e) => updateNumber(e.target.value)}
+          id="input-number"
+          label="Enter a Positive Number"
+          type="number"
+        />
+        <Typography variant="h6" sx={{ m: 3 }}>
+          {example(number)}
+
+          <br />
+        </Typography>
       </Container>
     </>
   );

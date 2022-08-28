@@ -19,6 +19,10 @@ svg {
   stroke-dashoffset: 1;
   animation: dash 2s linear forwards infinite;
 }
+.circle {
+  transform: rotateZ(-90deg);
+  transform-origin: center;
+}
 
 @keyframes dash {
   to {
