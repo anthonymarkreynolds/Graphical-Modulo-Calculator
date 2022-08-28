@@ -29,11 +29,7 @@ const PanelStepper = ({ panels }) => {
         >
           <Button
             disabled={!currentPanel}
-            onClick={() =>
-              updatePanel(
-                (prevPanel) => (prevPanel - 1 + panels.length) % panels.length
-              )
-            }
+            onClick={() => updatePanel((prevPanel) => prevPanel - 1)}
           >
             <ArrowBackIosNew /> Back
           </Button>
@@ -45,9 +41,7 @@ const PanelStepper = ({ panels }) => {
           </Button>
           <Button
             disabled={currentPanel === panels.length - 1}
-            onClick={() =>
-              updatePanel((prevPanel) => (prevPanel + 1) % panels.length)
-            }
+            onClick={() => updatePanel((prevPanel) => prevPanel + 1)}
           >
             Next <ArrowForwardIos />
           </Button>
