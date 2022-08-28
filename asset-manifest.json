@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/React-SVG-Polygons/static/css/main.9fbfcda7.css",
-    "main.js": "/React-SVG-Polygons/static/js/main.f48199da.js",
+    "main.css": "/React-SVG-Polygons/static/css/main.9e368d96.css",
+    "main.js": "/React-SVG-Polygons/static/js/main.a7bb105f.js",
     "static/js/787.84da9cb9.chunk.js": "/React-SVG-Polygons/static/js/787.84da9cb9.chunk.js",
     "index.html": "/React-SVG-Polygons/index.html",
-    "main.9fbfcda7.css.map": "/React-SVG-Polygons/static/css/main.9fbfcda7.css.map",
-    "main.f48199da.js.map": "/React-SVG-Polygons/static/js/main.f48199da.js.map",
+    "main.9e368d96.css.map": "/React-SVG-Polygons/static/css/main.9e368d96.css.map",
+    "main.a7bb105f.js.map": "/React-SVG-Polygons/static/js/main.a7bb105f.js.map",
     "787.84da9cb9.chunk.js.map": "/React-SVG-Polygons/static/js/787.84da9cb9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fbfcda7.css",
-    "static/js/main.f48199da.js"
+    "static/css/main.9e368d96.css",
+    "static/js/main.a7bb105f.js"
   ]
 }
