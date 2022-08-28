@@ -1,3 +1,6 @@
+:root {
+  --num: "20";
+}
 svg {
   max-height: 500px;
   /* animation: App-logo-spin infinite 20s linear; */
@@ -17,7 +20,9 @@ svg {
 .path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: dash 2s linear forwards infinite;
+}
+.animate {
+  animation: dash 0.5s linear forwards 4;
 }
 .circle {
   transform: rotateZ(-90deg);

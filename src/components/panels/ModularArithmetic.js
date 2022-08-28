@@ -10,12 +10,9 @@ const ModularArithmetic = () => {
       <PanelHeader title="Modular Arithmetic" />
       <Container sx={{ p: 3 }}>
         <Typography variant="h2" sx={{ mt: 5, fontSize: 36 }}>
-          What is a Modular Arithmetic?
+          What is Modular Arithmetic?
         </Typography>
-        <Typography sx={{ my: 3 }}>
-          A digital root is the result of repeatedly summing all the digits in a
-          whole number until only one digit remains.
-        </Typography>
+        <Typography sx={{ my: 3 }}>TODO: explain</Typography>
         <Polygon sides={sides} />
         <Box sx={{ width: 300 }}>
           <Slider
