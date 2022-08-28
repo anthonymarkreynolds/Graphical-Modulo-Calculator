@@ -19,55 +19,62 @@ const PanelStepper = ({ panels }) => {
   const theme = useTheme();
 
   return (
-    <Container>
-      <Box my={3}>{panels[currentPanel][1]}</Box>
-      <Divider />
-      <ButtonGroup variant="text" sx={{ m: 3 }}>
-        <Button
-          disabled={!currentPanel}
-          onClick={() =>
-            updatePanel(
-              (prevPanel) => (prevPanel - 1 + panels.length) % panels.length
-            )
-          }
+    <>
+      {panels[currentPanel][1]}
+      <Container>
+        <Divider />
+        <ButtonGroup
+          variant="text"
+          sx={{ m: 3, display: "flex", justifyContent: "center" }}
         >
-          <ArrowBackIosNew /> Back
-        </Button>
-        <Button
-          disabled
-          sx={{ color: `${theme.palette.grey[700]} !important` }}
+          <Button
+            disabled={!currentPanel}
+            onClick={() =>
+              updatePanel(
+                (prevPanel) => (prevPanel - 1 + panels.length) % panels.length
+              )
+            }
+          >
+            <ArrowBackIosNew /> Back
+          </Button>
+          <Button
+            disabled
+            sx={{ color: `${theme.palette.grey[800]} !important` }}
+          >
+            {panels[currentPanel][0]}
+          </Button>
+          <Button
+            disabled={currentPanel === panels.length - 1}
+            onClick={() =>
+              updatePanel((prevPanel) => (prevPanel + 1) % panels.length)
+            }
+          >
+            Next <ArrowForwardIos />
+          </Button>
+        </ButtonGroup>
+        <Box
+          sx={{
+            p: 5,
+            pb: 3,
+            borderRadius: 2,
+            boxShadow: theme.shadows[1],
+            bgcolor: theme.palette.grey[100],
+          }}
         >
-          {panels[currentPanel][0]}
-        </Button>
-        <Button
-          disabled={currentPanel === panels.length - 1}
-          onClick={() =>
-            updatePanel((prevPanel) => (prevPanel + 1) % panels.length)
-          }
-        >
-          Next <ArrowForwardIos />
-        </Button>
-      </ButtonGroup>
-      <Box
-        sx={{
-          p: 5,
-          pb: 3,
-          borderRadius: 2,
-          boxShadow: theme.shadows[1],
-          bgcolor: theme.palette.grey[100],
-        }}
-      >
-        <Stepper nonLinear alternativeLabel activeStep={currentPanel}>
-          {panels.map(([label], i) => {
-            return (
-              <Step key={label}>
-                <StepButton onClick={() => updatePanel(i)}>{label}</StepButton>
-              </Step>
-            );
-          })}
-        </Stepper>
-      </Box>
-    </Container>
+          <Stepper nonLinear alternativeLabel activeStep={currentPanel}>
+            {panels.map(([label], i) => {
+              return (
+                <Step key={label}>
+                  <StepButton onClick={() => updatePanel(i)}>
+                    {label}
+                  </StepButton>
+                </Step>
+              );
+            })}
+          </Stepper>
+        </Box>
+      </Container>
+    </>
   );
 };
 
