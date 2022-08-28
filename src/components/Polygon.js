@@ -1,8 +1,17 @@
-import { Button, ButtonGroup, Box, TextField, Typography } from "@mui/material";
-import { useState } from "react";
-import CountUp from "react-countup";
+import { Battery0Bar } from "@mui/icons-material";
+import {
+  Slider,
+  Button,
+  ButtonGroup,
+  Box,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useState, useRef } from "react";
+import { useCountUp } from "react-countup";
 
-const Polygon = ({ sides }) => {
+const Polygon = () => {
+  const [sides, updateSides] = useState(3);
   const [polygon, togglePolygon] = useState(false);
   const [animate, toggleAnimate] = useState(false);
   const [counter, updateCounter] = useState(10);
@@ -17,11 +26,19 @@ const Polygon = ({ sides }) => {
     .map(([x, y]) => `${50 - x * 35},${50 + y * 35}`)
     .join(" ");
 
+  const countUpRef = useRef(null);
+  const { start } = useCountUp({
+    ref: countUpRef,
+    start: 0,
+    end: counter,
+    duration: speed,
+    delay: speed / counter / 2,
+    useEasing: false,
+    startOnMount: false,
+  });
+
   return (
     <>
-      <Typography variant="h5">
-        {counter} mod {sides}
-      </Typography>
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         {sides > 2 && polygon ? (
           <polyline
@@ -31,7 +48,7 @@ const Polygon = ({ sides }) => {
             points={points}
             pathLength="1"
             style={{
-              animationName: "dash",
+              animationName: animate ? "dash" : "",
               animationDuration: `${speed / (counter / sides)}s`,
               animationIterationCount: counter / sides,
               animationFillMode: "forwards",
@@ -67,64 +84,80 @@ const Polygon = ({ sides }) => {
             {i}
           </text>
         ))}
-        <CountUp
-          start={0}
-          end={counter}
-          duration={speed}
-          delay={speed / sides / 2 - 0.5}
-          useEasing={false}
-        >
-          {({ countUpRef, start, reset }) => {
-            animate ? start() : reset();
-            return (
-              <text
-                id="svg-counter"
-                ref={countUpRef}
-                fill="grey"
-                x="40%"
-                y="56%"
-              ></text>
-            );
-          }}
-        </CountUp>
+        <text id="svg-counter" ref={countUpRef} fill="grey" y="56%" x="45%">
+          {animate && start()}
+        </text>
       </svg>
-      <Box>
-        <Button
-          disabled={sides < 3}
-          variant="outlined"
-          onClick={() => togglePolygon(!polygon)}
-        >
-          display as {polygon && sides > 2 ? "circle" : "polygon"}
-        </Button>
+      <Box m={3}>
+        <ButtonGroup>
+          <Button
+            onClick={() => {
+              toggleAnimate(true);
+            }}
+          >
+            Calculate
+          </Button>
+          <Button
+            onClick={() => {
+              toggleAnimate(false);
+            }}
+          >
+            reset
+          </Button>
+          <Button
+            disabled={sides < 3}
+            onClick={() => {
+              togglePolygon(!polygon);
+              toggleAnimate(false);
+            }}
+          >
+            display as {polygon && sides > 2 ? "circle" : "polygon"}
+          </Button>
+        </ButtonGroup>
       </Box>
-      <ButtonGroup>
-        <Button
-          onClick={() => {
-            toggleAnimate(true);
-          }}
-        >
-          Calculate
-        </Button>
-        <Button
-          onClick={() => {
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <TextField
+          id="input-number"
+          label="Enter a Number"
+          type="number"
+          defaultValue={counter}
+          sx={{ m: 2 }}
+          onChange={(e) => {
+            updateCounter(e.target.value);
             toggleAnimate(false);
           }}
-        >
-          reset
-        </Button>
-      </ButtonGroup>
-
-      <TextField
-        id="input-number"
-        label="Enter a Number"
-        type="number"
-        sx={{ m: 2 }}
-        onChange={(e) => updateCounter(e.target.value)}
-      />
-      {counter}
-      <p>
-        {polygon && sides > 2 ? "Sides" : "Segments"} (modulus): {sides}
-      </p>
+        />
+        <Typography variant="h6">mod</Typography>
+        <TextField
+          id="input-modulus"
+          label={`${polygon && sides > 2 ? "Sides" : "Segments"} (modulus)`}
+          type="number"
+          defaultValue={sides}
+          sx={{ m: 2 }}
+          onChange={(e) => {
+            updateSides(e.target.value);
+            toggleAnimate(false);
+          }}
+        />
+      </Box>
+      <Box m={3}>
+        <Typography variant="overline" gutterBottom>
+          Animation Duration: {speed} seconds
+        </Typography>
+        <Slider
+          aria-label="Animation Speed"
+          defaultValue={5}
+          valueLabelDisplay="auto"
+          step={1}
+          marks
+          min={1}
+          max={10}
+          onChange={(e) => {
+            updateSpeed(() => e.target.value);
+            toggleAnimate(false);
+          }}
+        />
+      </Box>
     </>
   );
 };
