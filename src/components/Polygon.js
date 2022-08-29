@@ -134,6 +134,7 @@ const Polygon = () => {
           onChange={(e) => {
             updateCounter(e.target.value);
             toggleAnimate(false);
+            reset();
           }}
         />
         <Typography variant="h6">mod</Typography>
@@ -146,6 +147,7 @@ const Polygon = () => {
           onChange={(e) => {
             updateSides(handleValidate(e.target.value));
             toggleAnimate(false);
+            reset();
           }}
         />
       </Box>
@@ -164,6 +166,7 @@ const Polygon = () => {
           onChange={(e) => {
             updateSpeed(() => handleValidate(e.target.value));
             toggleAnimate(false);
+            reset();
           }}
         />
       </Box>
