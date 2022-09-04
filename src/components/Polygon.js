@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useCountUp } from "react-countup";
 
 const Polygon = () => {
@@ -36,6 +36,8 @@ const Polygon = () => {
     useEasing: false,
     startOnMount: false,
   });
+
+  useEffect(() => reset(), []);
 
   const handleValidate = (numStr) =>
     isNaN(Number(numStr)) || Number(numStr) < 1 ? 1 : Number(numStr);
@@ -93,9 +95,13 @@ const Polygon = () => {
             {i}
           </text>
         ))}
-        <text id="svg-counter" ref={countUpRef} fill="grey" y="56%" x="45%">
-          0
-        </text>
+        <text
+          id="svg-counter"
+          ref={countUpRef}
+          fill="grey"
+          y="56%"
+          x="45%"
+        ></text>
       </svg>
       <Box m={3}>
         <ButtonGroup>
