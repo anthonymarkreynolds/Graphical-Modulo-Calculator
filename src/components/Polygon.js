@@ -1,5 +1,5 @@
-import { Battery0Bar } from "@mui/icons-material";
 import {
+  Container,
   Slider,
   Button,
   ButtonGroup,
@@ -41,7 +41,13 @@ const Polygon = () => {
     isNaN(Number(numStr)) || Number(numStr) < 1 ? 1 : Number(numStr);
 
   return (
-    <>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         {sides > 2 && polygon ? (
           <polyline
@@ -170,7 +176,7 @@ const Polygon = () => {
           }}
         />
       </Box>
-    </>
+    </Container>
   );
 };
 

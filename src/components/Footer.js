@@ -4,6 +4,7 @@ import {
   ButtonGroup,
   IconButton,
   Typography,
+  Link,
 } from "@mui/material";
 import { GitHub, Code, Email } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
@@ -16,7 +17,7 @@ const Footer = () => {
         mt: 5,
         bgcolor: theme.palette.grey[100],
         width: "100%",
-        overflowY: "hidden",
+        minHeight: "50vh",
       }}
     >
       <Container
@@ -25,16 +26,27 @@ const Footer = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          height: "100vh",
         }}
       >
         <ButtonGroup>
-          <IconButton>
-            <GitHub />
-          </IconButton>
-          <IconButton>
-            <Code />
-          </IconButton>
+          <Link
+            href="https://github.com/anthonymarkreynolds"
+            target="blank"
+            rel="noreferrer"
+          >
+            <IconButton>
+              <GitHub />
+            </IconButton>
+          </Link>
+          <Link
+            href="https://github.com/anthonymarkreynolds"
+            target="blank"
+            rel="noreferrer"
+          >
+            <IconButton>
+              <Code />
+            </IconButton>
+          </Link>
           <IconButton>
             <Email />
           </IconButton>

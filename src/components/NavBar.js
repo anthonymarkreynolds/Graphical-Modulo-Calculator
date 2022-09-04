@@ -5,6 +5,7 @@ import {
   Typography,
   IconButton,
   Container,
+  Link,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 const NavBar = () => {
@@ -13,11 +14,18 @@ const NavBar = () => {
       <Container>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Finding Digital Roots
+            Graphical Modulo Calculator
           </Typography>
-          <IconButton color="inherit">
-            <GitHubIcon />
-          </IconButton>
+          <Link
+            href="https://github.com/anthonymarkreynolds"
+            target="blank"
+            rel="noreferrer"
+            color="inherit"
+          >
+            <IconButton color="inherit">
+              <GitHubIcon />
+            </IconButton>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>
