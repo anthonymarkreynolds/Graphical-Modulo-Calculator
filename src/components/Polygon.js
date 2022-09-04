@@ -93,13 +93,9 @@ const Polygon = () => {
             {i}
           </text>
         ))}
-        <text
-          id="svg-counter"
-          ref={countUpRef}
-          fill="grey"
-          y="56%"
-          x="45%"
-        ></text>
+        <text id="svg-counter" ref={countUpRef} fill="grey" y="56%" x="45%">
+          0
+        </text>
       </svg>
       <Box m={3}>
         <ButtonGroup>
