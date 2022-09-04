@@ -17,7 +17,7 @@ const NavBar = () => {
             Graphical Modulo Calculator
           </Typography>
           <Link
-            href="https://github.com/anthonymarkreynolds"
+            href="https://github.com/anthonymarkreynolds/Graphical-Modulo-Calculator"
             target="blank"
             rel="noreferrer"
             color="inherit"

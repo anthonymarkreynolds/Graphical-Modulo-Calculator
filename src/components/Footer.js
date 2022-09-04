@@ -39,7 +39,7 @@ const Footer = () => {
             </IconButton>
           </Link>
           <Link
-            href="https://github.com/anthonymarkreynolds"
+            href="https://github.com/anthonymarkreynolds/Graphical-Modulo-Calculator"
             target="blank"
             rel="noreferrer"
           >
